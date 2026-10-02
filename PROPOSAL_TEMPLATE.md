@@ -7,7 +7,7 @@ Copy this file into your **group** repository as `PROPOSAL.md`, then fill it in 
 - <Zachary Cas + zzoac>
 - <Aaden Nim + aadennim-wq>
 - <Dashaun Smith-Davis + dsmithdavis2378>
-- <Victor Otuije + GitHub username>
+- <Victor Otuije + VictorOtuije>
 - <Oluwatimilehin Balogun + GitHub username, if any>
 
 ## The application
