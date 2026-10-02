@@ -10,7 +10,7 @@ networked, multi-user theme - see the "Suggested projects" section of
 
 | Full name | GitHub username |
 |-----------|-----------------|
-| <nameOluwatimilehin Balogun>    | @<username>     |
+| <#Oluwatimilehin Balogun>    | @<username>     |
 | <name>    | @<username>     |
 | <name>    | @<username>     |
 | <name>    | @<username>     |
