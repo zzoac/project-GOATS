@@ -4,11 +4,11 @@ Copy this file into your **group** repository as `PROPOSAL.md`, then fill it in 
 
 ## Team
 
-- <Zachary Cas + zzoac>
-- <Aaden Nim + aadennim-wq>
-- <Dashaun Smith-Davis + dsmithdavis2378>
-- <Victor Otuije + VictorOtuije>
-- <Oluwatimilehin Balogun + GitHub username, if any>
+- Zachary Cas + zzoac
+- Aaden Nim + aadennim-wq
+- Dashaun Smith-Davis + dsmithdavis2378
+- Victor Otuije + VictorOtuije
+- Oluwatimilehin Balogun + GitHub username, if any
 
 ## The application
 
