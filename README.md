@@ -10,7 +10,7 @@ networked, multi-user theme - see the "Suggested projects" section of
 
 | Full name | GitHub username |
 |-----------|-----------------|
-| Oluwatimilehin Balogun    | @<username>     |
+| Oluwatimilehin Balogun    | @Templeton16     |
 | Zachary Cas    | @zzoac     |
 | Aaden Nim    | @aadennim-wq     |
 | Victor Otuije    | @VictorOtuije     |
