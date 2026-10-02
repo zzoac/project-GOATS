@@ -4,9 +4,9 @@ Copy this file into your **group** repository as `PROPOSAL.md`, then fill it in 
 
 ## Team
 
-- <member 1 name + GitHub username>
-- <member 2 name + GitHub username>
-- <member 3 name + GitHub username>
+- <Zachary Cas + zzoac>
+- <Aaden Nim + aadennim-wq>
+- <Dashaun Smith-Davis + dsmithdavis2378>
 - <member 4 name + GitHub username>
 - <member 5 name + GitHub username, if any>
 
