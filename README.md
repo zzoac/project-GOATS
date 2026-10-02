@@ -47,3 +47,11 @@ implemented - what it does, its complexity, and why that is fast enough here.>
 > them in together, and fill in the slices table in `CONTRIBUTIONS.md` at the same time.
 > From Milestone 1 on, grow "The application" and "Running it" into a real README for your
 > project, and keep the team table, the tech plan, and these pointers.
+
+
+Milestone 1 Commit- Initial Game set-up and Structure Dashaun Smith-Davis:
+For my first commit towards milestone 1, I have organised the initial set up for the game while adding a few important functions, lists, and conditionals. 
+
+I began with a feedback = dictionary which stores word descriptions onto 3 outcomes: correct, incorrect and wrong position. This helps us to identify when words inputed match the hidden word or letters which are included in the word. Then I created a validate_guess function which accepts strings and the checks if they meet the conditional requirements. 
+
+I used the conditionals if len(guess) != 5 and if not guess.alpha(). The len(guess) function checks the length of an input to make sure the user responds with 5 characters and guess.isalpha() makes sure the input only has letters in the alphabet. Lastly, in the main function I set up the hidden word "space" which is the correct Wordle answer as well as the number of attemps which is 6. Along with this I printed out a welcome to the game and the basics instructions users have to follow. 
