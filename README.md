@@ -55,3 +55,13 @@ For my first commit towards milestone 1, I have organised the initial set up for
 I began with a feedback = dictionary which stores word descriptions onto 3 outcomes: correct, incorrect and wrong position. This helps us to identify when words inputed match the hidden word or letters which are included in the word. Then I created a validate_guess function which accepts strings and the checks if they meet the conditional requirements. 
 
 I used the conditionals if len(guess) != 5 and if not guess.alpha(). The len(guess) function checks the length of an input to make sure the user responds with 5 characters and guess.isalpha() makes sure the input only has letters in the alphabet. Lastly, in the main function I set up the hidden word "space" which is the correct Wordle answer as well as the number of attemps which is 6. Along with this I printed out a welcome to the game and the basics instructions users have to follow. 
+
+
+
+Milestone 1 Commit- Creation of the input comparing function by Aaden Nim:
+For my commitment i started by first creating the function that compares both the input word along with the secret word. This function is then run and starts with first converting both given words into seperate characters through the usage of lists. This helps by seperating each letter in its own index, later on allowing for the comparison of seperate letters. 
+
+a new list is created to record the results of whether the words are correct, incorrect, or in the wrong position. A for loop is then used with the range of the length of the secret word, which is 5. a conditional is then used to see if the guess letter is equal to the secret letter in the same position. if it is correct, the result is added to the result list and both letters are removed to stop any potential issues with position. this runs until it reaches the length of the word.
+
+a second for loop with the same range is then ran to account for incorrect and wrong position answers. Another conditional is used for if a input letter is still in the list but not in the secret word list, which it is then considered incorrect, An else if is also used for if a input letter is still in the list and also in the secret letter word list, which displays in the wrong position. Finally, the list of correct, incorrect, and wrong position is returned.
+
