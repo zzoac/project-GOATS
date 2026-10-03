@@ -39,13 +39,14 @@ def validate_guess(guess):
     return True
 
 def get_guess():
+    """Gets a guess from the player."""
     while True:
         guess = input("Enter your 5-letter guess: ").lower()
 
         if len(guess) == 5 and guess.isalpha():
             return guess
 
-        print("Invalid guess. Please enter 5 words EXACTLY")
+        print("Invalid guess. Please enter 5 letters EXACTLY")
 
 def main():
     secret_word = "space"
