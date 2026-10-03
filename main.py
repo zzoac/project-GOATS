@@ -30,8 +30,6 @@ def compare_input(guess, secret_word):
             result_list[i] = feedback["incorrect"]
     
     return result_list
-
-
 def validate_guess(guess):
     if len(guess) != 5:
         return False
@@ -40,12 +38,29 @@ def validate_guess(guess):
 
     return True
 
+def get_guess():
+    while True:
+        guess = input("Enter your 5-letter guess: ").lower()
+
+        if len(guess) == 5 and guess.isalpha():
+            return guess
+
+        print("Invalid guess. Please enter 5 words EXACTLY")
+
 def main():
     secret_word = "space"
     attempts = 6
 
     print("Welcome to Wordle!")
     print("You have 6 tries to guess the word correctly!")
+
+    guesses = []
+
+    
+    guess = get_guess()
+    guesses.append(guess)
+
+    print("Recorded guesses:", guesses)
 
     
     print("CSCI 1030U group project - not built yet.")
