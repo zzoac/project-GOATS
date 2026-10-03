@@ -58,7 +58,7 @@ Worked example:
 | Student | Planning | Control flow | Collections | Functions |
 |---------|----------|--------------|-------------|-----------|
 | Dashaun | 19ee0f3  | 188f10f      |  188f10f    | 188f10f   |
-| <name>  |          |              |             |           |
+| Aaden   | e218f40  | d6e2d97      |  d6e2d97    | d6e2d97   |
 | <name>  |          |              |             |           |
 | <name>  |          |              |             |           |
 | <name>  |          |              |             |           |
