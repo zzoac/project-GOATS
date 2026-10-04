@@ -3,6 +3,21 @@
 `python main.py` must run your project at every milestone, so keep this file working
 from Milestone 1 onward. Replace the placeholder below with your own core loop.
 """
+import random
+
+word_list = [
+    "apple", "beach", "brain", "bread", "chair",
+    "charm", "chase", "chest", "clock", "cloud",
+    "crane", "dance", "dream", "drink", "drive",
+    "earth", "flame", "flash", "float", "flour",
+    "fresh", "fruit", "ghost", "glass", "grape",
+    "grass", "green", "happy", "heart", "horse",
+    "house", "juice", "lemon", "light", "magic",
+    "mango", "money", "mouse", "music", "night",
+    "ocean", "paint", "paper", "peach", "piano",
+    "plant", "queen", "river", "space", "water"
+]
+
 feedback = {
     "correct": "Correct",
     "wrong_position":"Wrong Position",
@@ -48,7 +63,7 @@ def get_guess():
         print("Invalid guess. Please enter 5 words EXACTLY")
 
 def main():
-    secret_word = "space"
+    secret_word = random.choice(word_list)
     attempts = 6
 
     print("Welcome to Wordle!")
