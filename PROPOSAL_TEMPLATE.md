@@ -12,8 +12,7 @@ Copy this file into your **group** repository as `PROPOSAL.md`, then fill it in 
 
 ## The application
 
-<One or two sentences: what are you building? It should fit the networked multi-user
-theme - see project/overview.md. Name a suggested project or describe your own idea.>
+<We have decided to create a Wordle game which we will continuously add new features to over time>
 
 ## First feature breakdown (one slice per member)
 
