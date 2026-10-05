@@ -114,9 +114,9 @@ def main():
             print("The word was:", secret_word)
             break
             
-    play_again = input("Do you want to play again? (yes/no): ").strip().lower()
+    play_again = input("Do you want to play again? (yes/no): ").strip().lower() #Timi
     if play_again not in ("yes", "y"):
-           print("Thanks for playing!")
+           print("Thanks for playing!")#Timi
            print("CSCI 1030U group project - not built yet.")
            print("Replace main() with your core loop. See MILESTONES.md for what is due when.")
            return  
