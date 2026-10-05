@@ -91,6 +91,7 @@ def main():
 
     while attempts > 0:
         print(f"\nAttempts Remaining: {attempts}")
+    
 
     
         guess = get_guess()
@@ -112,20 +113,14 @@ def main():
             print("\nGame over!")
             print("The word was:", secret_word)
             break
-     play_again = input("Do you want to play again? (yes/no): ").strip().lower()
-     if play_again not in ("yes", "y"):
-         print("Thanks for playing!")
-         print("CSCI 1030U group project - not built yet.")
-         print("Replace main() with your core loop. See MILESTONES.md for what is due when.")
-         return
+            
+    play_again = input("Do you want to play again? (yes/no): ").strip().lower()
+    if play_again not in ("yes", "y"):
+           print("Thanks for playing!")
+           print("CSCI 1030U group project - not built yet.")
+           print("Replace main() with your core loop. See MILESTONES.md for what is due when.")
+           return  
          
             
-
-
-    
-    
-
-
-
 if __name__ == '__main__':
     main()
