@@ -56,26 +56,43 @@ def validate_guess(guess):
 def get_guess():
     while True:
         guess = input("Enter your 5-letter guess: ").lower()
-
-        if len(guess) == 5 and guess.isalpha():
+    
+        if validate_guess(guess):
             return guess
-
-        print("Invalid guess. Please enter 5 words EXACTLY")
+    
+        print("Invalid guess. Please enter 5 letters EXACTLY")
 
 def main():
     secret_word = random.choice(word_list)
     attempts = 6
+    guesses = []
 
     print("Welcome to Wordle!")
     print("You have 6 tries to guess the word correctly!")
 
-    guesses = []
+    while attempts > 0:
+        print(f"\nAttempts Remaining: {attempts}")
 
     
-    guess = get_guess()
-    guesses.append(guess)
+        guess = get_guess()
+        guesses.append(guess)
+    
+        results = compare_input(guess, secret_word)
+        print("Guess feedback:", results)
+        for i in range(5):
+            print(guess[i].upper(), "-", results[i])
 
-    print("Recorded guesses:", guesses)
+
+        if guess == secret_word:
+            print(f"Congratulations! You guessed the word: {secret_word}")
+            return
+        
+        attempts -= 1
+        
+        if attempts == 0:
+            print("\nGame over!")
+            print("The word was:", secret_word)
+
 
     
     print("CSCI 1030U group project - not built yet.")
