@@ -60,7 +60,7 @@ Worked example:
 | Dashaun |19ee0f3   |188f10f,6cca57e|188f10f,6cca57e|188f10f,6cca57e|
 | Aaden   | e218f40  | d6e2d97      |  d6e2d97    | d6e2d97   |
 | Zachary  |          |  97f53f0            |  97f53f0           |  97f53f0         |
-| <name>  | a252288|1d3550e, e0d66c5|             |1d3550e, e0d66c5|
+| Oluwatimilehin | a252288|1d3550e, e0d66c5|             |1d3550e, e0d66c5|
 | <name>  |          |              |             |           |
 
 <!-- Optional but recommended: a line per member saying which function or file to look at. -->
