@@ -49,12 +49,14 @@ implemented - what it does, its complexity, and why that is fast enough here.>
 > project, and keep the team table, the tech plan, and these pointers.
 
 
-Milestone 1 Commit- Initial Game set-up and Structure Dashaun Smith-Davis:
+Milestone 1 Commit- Initial Game set-up and Structure- Dashaun Smith-Davis:
 For my first commit towards milestone 1, I have organised the initial set up for the game while adding a few important functions, lists, and conditionals. 
 
-I began with a feedback = dictionary which stores word descriptions onto 3 outcomes: correct, incorrect and wrong position. This helps us to identify when words inputed match the hidden word or letters which are included in the word. Then I created a validate_guess function which accepts strings and the checks if they meet the conditional requirements. 
+I began with a feedback = list which acts as a dictionary which stores word descriptions onto 3 outcomes: correct, incorrect and wrong position. This helps us to identify when words inputed match the hidden word or letters which are included in the word. Then I created a validate_guess function which accepts strings and the checks if they meet the conditional requirements. 
 
-I used the conditionals if len(guess) != 5 and if not guess.alpha(). The len(guess) function checks the length of an input to make sure the user responds with 5 characters and guess.isalpha() makes sure the input only has letters in the alphabet. Lastly, in the main function I set up the hidden word "space" which is the correct Wordle answer as well as the number of attemps which is 6. Along with this I printed out a welcome to the game and the basics instructions users have to follow. 
+I used the conditionals if len(guess) != 5 and if not guess.alpha(). The len(guess) function checks the length of an input to make sure the user responds with 5 characters and guess.isalpha() makes sure the input only has letters in the alphabet. 
+
+In the main function I defined the secret word as a random word from word_list ensuring that the user gets a random word to guess. Next I created while>0 which acts as the main game loop to start the game and then end once the users attempts have all been used. Next ther is a guesses.append() function that places each user guess string into the guess list to identify the status of the word. The I used results = compare_input and for i in range(5) to determine the result of the input and then print the users feedback for their choice. Lastly I implemented the win/loss conditions to define when a player has guessed correctly, or run out of turns
 
 
 
