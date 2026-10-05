@@ -4,6 +4,7 @@
 from Milestone 1 onward. Replace the placeholder below with your own core loop.
 """
 import random
+import webbrowser
 
 word_list = [
     "apple", "beach", "brain", "bread", "chair",
@@ -61,8 +62,26 @@ def get_guess():
             return guess
     
         print("Invalid guess. Please enter 5 letters EXACTLY")
-
+def show_wordle_video(): #Timi
+    video_url = "https://www.youtube.com/watch?v=lv4Zg-209MY"
+    print("Here is a video that explains how to play Wordle:")
+    print(video_url)
+    if not webbrowser.open(video_url):
+        print("Your browser could not be opened automatically. Copy and paste the link above.")#Timi
 def main():
+    while True: #Timi
+        knows_how_to_play = input(
+            "Do you know how to play Wordle? (yes/no): "
+        ).strip().lower()
+
+        if knows_how_to_play in ("yes", "y"):
+            print("Great! You can continue to the game.")
+            break
+        if knows_how_to_play in ("no", "n"):
+            show_wordle_video()
+            break
+
+        print("Please answer yes or no.") #TImi
     secret_word = random.choice(word_list)
     attempts = 6
     guesses = []
