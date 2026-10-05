@@ -19,9 +19,9 @@ word_list = [
 ]
 
 feedback = {
-    "correct": "Correct",
-    "wrong_position":"Wrong Position",
-    "incorrect": "Not in word"
+    "correct": "🟩",
+    "wrong_position":"🟨",
+    "incorrect": "⬜"
 }
 
 def compare_input(guess, secret_word):    
