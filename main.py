@@ -5,6 +5,75 @@ from Milestone 1 onward. Replace the placeholder below with your own core loop.
 """
 import random
 import webbrowser
+import tkinter as tk
+import json 
+import argparse
+
+
+class statsManager:
+    def __init__(self, filename="profiles.json"):
+        self.filename=filename
+        self.stats=self.load_stats()
+    
+    def load_stats(self):
+        with open(self.filename, "r") as file:
+            return json.load(file)
+
+    def save_stats(self):
+        with open(self.filename,"w") as file:
+            json.dump(self.stats,file,indent=4)
+
+    def record_profile(self, username, attempts, won):
+        user_profile=None
+        for p in self.stats:
+            if p["username"]== username:
+                user_profile = p
+                break
+
+        if user_profile in self.stats:
+            user_profile["games_played"]+=1
+            if won:
+                user_profile["games_won"]+=1
+                if user_profile["attempts_used"]>attempts or user_profile["attempts_used"]==0:
+                    user_profile["attempts_used"]=attempts
+        else:
+            new_profile={
+                "username":username,
+                "games_played":1,
+                "games_won":1 if won else 0,
+                "attempts_used": attempts if won else 0
+            }
+            self.stats.append(new_profile)
+
+        self.stats= self.recursive_bubble_sort(self.stats)
+        self.save_stats()
+
+    def recursive_bubble_sort(self,profiles,n=None):
+        if n is None:
+            n=len(profiles)
+        if n<=1:
+            return profiles
+
+        for i in range(n-1):
+            left=self._get_attempts_used(profiles[i])
+            right=self._get_attempts_used(profiles[i+1])
+
+            if left> right:
+                temp=profiles[i]
+                profiles[i]=profiles[i+1]
+                profiles[i+1]=temp
+
+        return self.recursive_bubble_sort(profiles, n-1 )
+
+    def get_attempts_used(self,profile):
+        best=profile.get("attempts_used",99)
+        if best == 0:
+            return 99   
+        else:
+            return best
+        
+
+
 
 word_list = [
     "apple", "beach", "brain", "bread", "chair",
@@ -69,6 +138,7 @@ def show_wordle_video(): #Timi
     if not webbrowser.open(video_url):
         print("Your browser could not be opened automatically. Copy and paste the link above.")#Timi
 def main():
+    tracker = statsManager()
     while True: #Timi
         knows_how_to_play = input(
             "Do you know how to play Wordle? (yes/no): "
@@ -105,6 +175,8 @@ def main():
 
         if guess == secret_word:
             print(f"Congratulations! You guessed the word: {secret_word}")
+            name= input("please enter a name:")
+            tracker.record_profile(name,6-attempts, won=True)
             return
         
         attempts -= 1
@@ -112,6 +184,8 @@ def main():
         if attempts == 0:
             print("\nGame over!")
             print("The word was:", secret_word)
+            name= input("please enter a name:")
+            tracker.record_profile(name,6-attempts,won=False)
             break
             
     play_again = input("Do you want to play again? (yes/no): ").strip().lower() #Timi
