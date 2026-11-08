@@ -73,7 +73,23 @@ class statsManager:
             return best
         
 
-
+if __name__ =="__main__":
+    parser= argparse.ArgumentParser(description="stat tracker")
+    parser.add_argument("--file", default="profiles.json", help="path to profile json")
+    parser.add_argument("--leaderboard", action="store_true",help="print leaderboard")
+    args = parser.parse_args()
+    manager= statsManager(filename=args.file)
+    if args.leaderboard:
+        print("wordle leaderboard")
+        count = 1
+        for p in manager.stats:
+            
+            best= p.get('attempts_used','')
+            print(f"{count}. user:{p['username']}\t games played: {p['games_played']}\t least attempts used:{p['attempts_used']}")
+            count+=1
+    else:
+        print("loading wordle")
+            
 
 word_list = [
     "apple", "beach", "brain", "bread", "chair",
