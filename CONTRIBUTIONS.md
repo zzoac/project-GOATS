@@ -69,7 +69,7 @@ Worked example:
 
 | Student | OOP | File I/O | Recursion | Command-line args | Interface (TUI/GUI) |
 |---------|-----|----------|-----------|-------------------|---------------------|
-| <name>  |     |          |           |                   |                     |
+|victor   |cdbc78a|4676f1d | f2ff1b3   |4122370            |                     |
 | <name>  |     |          |           |                   |                     |
 | <name>  |     |          |           |                   |                     |
 | <name>  |     |          |           |                   |                     |

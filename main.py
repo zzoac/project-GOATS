@@ -110,7 +110,7 @@ class statsManager:
 
 if __name__ =="__main__":
     parser= argparse.ArgumentParser(description="stat tracker")
-    parser.add_argument("--profile",type=str,default="Player",help="Choose a player profile")
+    parser.add_argument("--profile",type=str,default="Player",help="Choose a player profile") #4122370
     parser.add_argument("--file", default="profiles.json", help="path to profile json")
     parser.add_argument("--leaderboard", action="store_true",help="print leaderboard")
     args = parser.parse_args()
