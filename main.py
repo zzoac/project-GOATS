@@ -9,7 +9,7 @@ import tkinter as tk
 import json 
 import argparse
 
-class PlayerProfile:
+class PlayerProfile: #f2ff1b3
     def __init__(self, username):
         self.username = username
         self.games_played = 0
@@ -19,6 +19,26 @@ class PlayerProfile:
         print("Username:", self.username)
         print("Games played:", self.games_played)
         print("Games won:", self.games_won)
+
+    def save_profile(self):
+        with open("player_profile.json", "w") as file:
+            json.dump({
+                "username": self.username,
+                "games_played": self.games_played,
+                "games_won": self.games_won
+            }, file, indent=4)
+
+    def load_profile(self):
+        try:
+            with open("player_profile.json", "r") as file:
+                data = json.load(file)
+
+            self.username = data["username"]
+            self.games_played = data["games_played"]
+            self.games_won = data["games_won"]
+
+        except FileNotFoundError:
+            print("No saved profile found.")
 
 class statsManager:
     def __init__(self, filename="profiles.json"):
