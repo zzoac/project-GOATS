@@ -90,8 +90,8 @@ class statsManager:
             return profiles
 
         for i in range(n-1):
-            left=self._get_attempts_used(profiles[i])
-            right=self._get_attempts_used(profiles[i+1])
+            left=self.get_attempts_used(profiles[i])
+            right=self.get_attempts_used(profiles[i+1])
 
             if left> right:
                 temp=profiles[i]
