@@ -20,7 +20,7 @@ class PlayerProfile: #f2ff1b3
         print("Games played:", self.games_played)
         print("Games won:", self.games_won)
 
-    def save_profile(self):
+    def save_profile(self): #cdbc78a
         with open("player_profile.json", "w") as file:
             json.dump({
                 "username": self.username,
@@ -39,6 +39,11 @@ class PlayerProfile: #f2ff1b3
 
         except FileNotFoundError:
             print("No saved profile found.")
+
+        def count_games(self, history, index=0):
+            if index == len(history):
+                return 0
+            return 1 + self.count_games(history, index + 1)
 
 class statsManager:
     def __init__(self, filename="profiles.json"):
