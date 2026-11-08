@@ -9,6 +9,16 @@ import tkinter as tk
 import json 
 import argparse
 
+class PlayerProfile:
+    def __init__(self, username):
+        self.username = username
+        self.games_played = 0
+        self.games_won = 0
+
+    def display_profile(self):
+        print("Username:", self.username)
+        print("Games played:", self.games_played)
+        print("Games won:", self.games_won)
 
 class statsManager:
     def __init__(self, filename="profiles.json"):
