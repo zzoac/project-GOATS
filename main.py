@@ -40,10 +40,10 @@ class PlayerProfile: #f2ff1b3
         except FileNotFoundError:
             print("No saved profile found.")
 
-        def count_games(self, history, index=0):
-            if index == len(history):
+    def count_games(self, history, index=0): #4676f1d
+        if index == len(history):
                 return 0
-            return 1 + self.count_games(history, index + 1)
+        return 1 + self.count_games(history, index + 1)
 
 class statsManager:
     def __init__(self, filename="profiles.json"):
@@ -110,6 +110,7 @@ class statsManager:
 
 if __name__ =="__main__":
     parser= argparse.ArgumentParser(description="stat tracker")
+    parser.add_argument("--profile",type=str,default="Player",help="Choose a player profile")
     parser.add_argument("--file", default="profiles.json", help="path to profile json")
     parser.add_argument("--leaderboard", action="store_true",help="print leaderboard")
     args = parser.parse_args()
