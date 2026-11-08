@@ -8,6 +8,7 @@ import webbrowser
 import tkinter as tk
 import json 
 import argparse
+from menu import WordleMenu
 
 
 class statsManager:
@@ -154,6 +155,52 @@ def show_wordle_video(): #Timi
     if not webbrowser.open(video_url):
         print("Your browser could not be opened automatically. Copy and paste the link above.")#Timi
 def main():
+
+    parser = argparse.ArgumentParser(
+        description="Wordle terminal game"
+    )
+
+    parser.add_argument(
+        "--attempts",
+        type=int,
+        choices=[4, 6, 8, 10],
+        help="Choose the number of attempts"
+    )
+
+    parser.add_argument(
+        "--difficulty",
+        choices=["easy", "normal", "hard"],
+        help="Choose game difficulty"
+    )
+
+    parser.add_argument(
+        "--settings",
+        default="settings.json",
+        help="Choose the settings file"
+    )
+
+    args = parser.parse_args()
+
+    menu = WordleMenu(settings_file=args.settings)
+
+    # Command-line options override saved settings.
+    if args.attempts is not None:
+        menu.attempts = args.attempts
+
+    if args.difficulty is not None:
+
+        menu.difficulty = args.difficulty.capitalize()
+
+        if menu.difficulty == "Easy":
+            menu.attempts = 8
+        elif menu.difficulty == "Normal":
+            menu.attempts = 6
+        elif menu.difficulty == "Hard":
+            menu.attempts = 4
+
+    menu.run()
+
+    
     tracker = statsManager()
     while True: #Timi
         knows_how_to_play = input(

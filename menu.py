@@ -9,18 +9,20 @@ Including:
 import json
 import os
 
+
 from numpy import rint
 
 class WordleMenu:
     """Controls terminal menu and settings"""
 
-    def __init__(self, settings_file= "settings.json", attempts=6, difficulty = "normal" ):
+    def __init__(self, settings_file= "settings.json", attempts=6, difficulty = "Normal" ):
 
         self.settings_file = settings_file
         self.attempts = attempts
         self.difficulty = difficulty
         self.running = True
 
+        
         self.load_settings()
 
         #Menu structure for recursive navigation
@@ -246,23 +248,5 @@ class WordleMenu:
 
         except (OSError, json.JSONDecodeError):
             print("Could not load settings. Using defaults.")
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
