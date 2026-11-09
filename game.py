@@ -76,6 +76,35 @@ def get_guess():
 
         print("Invalid guess. Please enter 5 letters EXACTLY.")
 
+# Timi
+def offer_hint(secret_word, guesses, revealed, hints_left):
+    """Ask if the player wants a hint and reveal one unfound letter."""
+    if hints_left == 0:
+        return hints_left
+
+    answer = input(
+        f"Use a hint? ({hints_left} left) (yes/no): "
+    ).strip().lower()
+    if answer not in ("yes", "y"):
+        return hints_left
+
+    found = set(revealed)
+    for guess in guesses:
+        for i in range(len(secret_word)):
+            if guess[i] == secret_word[i]:
+                found.add(i)
+
+    options = [i for i in range(len(secret_word)) if i not in found]
+    if not options:
+        print("You've already found every letter!")
+        return hints_left
+
+    pos = random.choice(options)
+    revealed.add(pos)
+    print(f"Hint: letter {pos + 1} is '{secret_word[pos].upper()}'")
+    return hints_left - 1
+
+
 
 def show_wordle_video():
     """Open the Wordle tutorial."""
@@ -89,8 +118,8 @@ def show_wordle_video():
         print("Your browser could not be opened automatically.")
         print("Copy and paste the link above.")
 
-
-def play_game(attempts, tracker):
+#Timi : pass difficulty so the hint count matches the selected setting.
+def play_game(attempts, tracker, difficulty):
     """Run a Wordle game using the selected attempt limit."""
 
     while True:
@@ -114,6 +143,11 @@ def play_game(attempts, tracker):
 
         secret_word = random.choice(word_list)
 
+        #Timi
+        guesses = []
+        revealed = set()
+        hints_left = {"Easy": 3, "Normal": 2, "Hard": 1}[difficulty]
+
         starting_attempts = attempts
         remaining_attempts = attempts
 
@@ -126,7 +160,15 @@ def play_game(attempts, tracker):
 
             print(f"\nAttempts Remaining: {remaining_attempts}")
 
+            # Timi
+            hints_left = offer_hint(
+                secret_word, guesses, revealed, hints_left
+            )
+
             guess = get_guess()
+
+            #Timi
+            guesses.append(guess)
 
             results = compare_input(guess, secret_word)
 
