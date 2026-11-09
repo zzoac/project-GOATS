@@ -85,8 +85,9 @@ class WordleMenu:
             print("\nStarting a new Wordle game...")
             print("Difficulty:", self.difficulty)
             print("Attempts:", self.attempts)
-            
-            play_game(self.attempts, self.tracker)
+
+            # Timi: provide the selected difficulty for hint limits.
+            play_game(self.attempts, self.tracker, self.difficulty)
         # Game file connected
 
 
