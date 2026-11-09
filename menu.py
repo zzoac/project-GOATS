@@ -8,6 +8,8 @@ Including:
 
 import json
 import os
+from game import play_game
+from stats_manager import StatsManager
 
 
 from numpy import rint
@@ -15,12 +17,12 @@ from numpy import rint
 class WordleMenu:
     """Controls terminal menu and settings"""
 
-    def __init__(self, settings_file= "settings.json", attempts=6, difficulty = "Normal" ):
-
+    def __init__(self, settings_file="settings.json", tracker=None):
         self.settings_file = settings_file
-        self.attempts = attempts
-        self.difficulty = difficulty
+        self.tracker = tracker
         self.running = True
+        self.attempts = 6
+        self.difficulty = "Normal"
 
         
         self.load_settings()
@@ -84,7 +86,8 @@ class WordleMenu:
             print("\nStarting a new Wordle game...")
             print("Difficulty:", self.difficulty)
             print("Attempts:", self.attempts)
-
+            
+            play_game(self.attempts, self.tracker)
         # Game file connected
 
 

@@ -4,5 +4,11 @@
         "games_played": 3,
         "games_won": 2,
         "attempts_used": 1
+    },
+    {
+        "username": "Dashaun",
+        "games_played": 1,
+        "games_won": 0,
+        "attempts_used": 0
     }
 ]
