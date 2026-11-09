@@ -49,29 +49,29 @@ class PlayerProfile: #f2ff1b3
 class statsManager:
     def __init__(self, filename="profiles.json"):
         self.filename=filename
-        self.stats=self.load_stats()
+        self.stats=self.loadStats()
     
-    def load_stats(self):
+    def loadStats(self):
         with open(self.filename, "r") as file:
-            return json.load(file)
+            return json.load(file) 
 
-    def save_stats(self):
+    def saveStats(self):
         with open(self.filename,"w") as file:
             json.dump(self.stats,file,indent=4)
 
-    def record_profile(self, username, attempts, won):
-        user_profile=None
+    def recordstats(self, username, attempts, won):#records each statistic for each player by username
+        userStatHolder=None
         for p in self.stats:
             if p["username"]== username:
-                user_profile = p
+                userStatHolder = p
                 break
 
-        if user_profile in self.stats:
-            user_profile["games_played"]+=1
+        if userStatHolder in self.stats:#checks if user is already in the dictionary
+            userStatHolder["games_played"]+=1
             if won:
-                user_profile["games_won"]+=1
-                if user_profile["attempts_used"]>attempts or user_profile["attempts_used"]==0:
-                    user_profile["attempts_used"]=attempts
+                userStatHolder["games_won"]+=1
+                if userStatHolder["attempts_used"]>attempts or userStatHolder["attempts_used"]==0:
+                    userStatHolder["attempts_used"]=attempts
         else:
             new_profile={
                 "username":username,
@@ -81,27 +81,25 @@ class statsManager:
             }
             self.stats.append(new_profile)
 
-        self.stats= self.recursive_bubble_sort(self.stats)
-        self.save_stats()
+        self.stats= self.recursiveBubbleSort(self.stats,len(self.stats))
+        self.saveStats()
 
-    def recursive_bubble_sort(self,profiles,n=None):
-        if n is None:
-            n=len(profiles)
+    def recursiveBubbleSort(self,profiles,n=None):
         if n<=1:
             return profiles
 
         for i in range(n-1):
-            left=self.get_attempts_used(profiles[i])
-            right=self.get_attempts_used(profiles[i+1])
+            left=self.getAttemptsUsed(profiles[i])
+            right=self.getAttemptsUsed(profiles[i+1])
 
             if left> right:
                 temp=profiles[i]
                 profiles[i]=profiles[i+1]
                 profiles[i+1]=temp
 
-        return self.recursive_bubble_sort(profiles, n-1 )
+        return self.recursiveBubbleSort(profiles, n-1 ) #sorts the list of users by attempts recursively
 
-    def get_attempts_used(self,profile):
+    def getAttemptsUsed(self,profile):
         best=profile.get("attempts_used",99)
         if best == 0:
             return 99   
@@ -117,13 +115,16 @@ if __name__ =="__main__":
     args = parser.parse_args()
     manager= statsManager(filename=args.file)
     if args.leaderboard:
-        print("wordle leaderboard")
+        print("Wordle leaderboard")
+        print("------------------------")
+        
         count = 1
         for p in manager.stats:
             
             best= p.get('attempts_used','')
             print(f"{count}. user:{p['username']}\t games played: {p['games_played']}\t least attempts used:{p['attempts_used']}")
             count+=1
+            print("--------------------------------------------------------------------")# splits between each rank
     else:
         print("loading wordle")
             
@@ -275,7 +276,7 @@ def main():
         if guess == secret_word:
             print(f"Congratulations! You guessed the word: {secret_word}")
             name= input("please enter a name:")
-            tracker.record_profile(name,6-attempts, won=True)
+            tracker.recordstats(name,6-attempts, won=True)
             return
         
         attempts -= 1
@@ -284,7 +285,7 @@ def main():
             print("\nGame over!")
             print("The word was:", secret_word)
             name= input("please enter a name:")
-            tracker.record_profile(name,6-attempts,won=False)
+            tracker.recordstats(name,6-attempts,won=False)
             break
             
     play_again = input("Do you want to play again? (yes/no): ").strip().lower() #Timi
