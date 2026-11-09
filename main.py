@@ -10,6 +10,41 @@ import json
 import argparse
 from menu import WordleMenu
 
+class PlayerProfile: #f2ff1b3
+    def __init__(self, username):
+        self.username = username
+        self.games_played = 0
+        self.games_won = 0
+
+    def display_profile(self):
+        print("Username:", self.username)
+        print("Games played:", self.games_played)
+        print("Games won:", self.games_won)
+
+    def save_profile(self): #cdbc78a
+        with open("player_profile.json", "w") as file:
+            json.dump({
+                "username": self.username,
+                "games_played": self.games_played,
+                "games_won": self.games_won
+            }, file, indent=4)
+
+    def load_profile(self):
+        try:
+            with open("player_profile.json", "r") as file:
+                data = json.load(file)
+
+            self.username = data["username"]
+            self.games_played = data["games_played"]
+            self.games_won = data["games_won"]
+
+        except FileNotFoundError:
+            print("No saved profile found.")
+
+    def count_games(self, history, index=0): #4676f1d
+        if index == len(history):
+                return 0
+        return 1 + self.count_games(history, index + 1)
 
 class statsManager:
     def __init__(self, filename="profiles.json"):
@@ -56,8 +91,8 @@ class statsManager:
             return profiles
 
         for i in range(n-1):
-            left=self._get_attempts_used(profiles[i])
-            right=self._get_attempts_used(profiles[i+1])
+            left=self.get_attempts_used(profiles[i])
+            right=self.get_attempts_used(profiles[i+1])
 
             if left> right:
                 temp=profiles[i]
@@ -76,6 +111,7 @@ class statsManager:
 
 if __name__ =="__main__":
     parser= argparse.ArgumentParser(description="stat tracker")
+    parser.add_argument("--profile",type=str,default="Player",help="Choose a player profile") #4122370
     parser.add_argument("--file", default="profiles.json", help="path to profile json")
     parser.add_argument("--leaderboard", action="store_true",help="print leaderboard")
     args = parser.parse_args()
