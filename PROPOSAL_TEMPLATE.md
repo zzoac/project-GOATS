@@ -18,7 +18,7 @@ Copy this file into your **group** repository as `PROPOSAL.md`, then fill it in 
 
 Each member owns one comparable feature, built end to end across the term.
 
-- <member 1>: <their feature>
+- <Dashaun Smith-Davis>: <Wordle Menu>
 - <member 2>: <their feature>
 - <member 3>: <their feature>
 

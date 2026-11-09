@@ -70,7 +70,7 @@ Worked example:
 | Student | OOP | File I/O | Recursion | Command-line args | Interface (TUI/GUI) |
 |---------|-----|----------|-----------|-------------------|---------------------|
 |victor   |cdbc78a|4676f1d | f2ff1b3   |4122370            |                     |
-| <name>  |     |          |           |                   |                     |
+| Dashaun |2ea1910|2ea1910 | 2ea1910   |8e3b65c            |  2ea1910            |
 | <name>  |     |          |           |                   |                     |
 | <name>  |     |          |           |                   |                     |
 | <name>  |     |          |           |                   |                     |
