@@ -12,7 +12,6 @@ from game import play_game
 from stats_manager import StatsManager
 
 
-from numpy import rint
 
 class WordleMenu:
     """Controls terminal menu and settings"""
